@@ -85,7 +85,7 @@
 }
 /* line 82, ../sass/image-viewer.scss */
 .image-viewer .iv-ui-overlay .iv-panel {
-  left: 75%;
+  right: 0;
 }
 /* line 87, ../sass/image-viewer.scss */
 .image-viewer .iv-ui-overlay .iv-close-button {
@@ -134,7 +134,7 @@
 @media only screen and (min-width: 650px) {
   /* line 142, ../sass/image-viewer.scss */
   .image-viewer .iv-media-holder {
-    right: 25%;
+    right: 250px;
     -webkit-transition: right 0.25s;
     -moz-transition: right 0.25s;
     -o-transition: right 0.25s;
@@ -145,8 +145,8 @@
     position: absolute;
     top: 0;
     bottom: 0;
-    left: 75%;
-    width: 25%;
+    right: 0;
+    width: 250px;
     background-color: #eeeeee;
     background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, rgba(0, 0, 0, 0)), color-stop(100%, rgba(0, 0, 0, 0.15)));
     background-image: -webkit-linear-gradient(top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.15));
@@ -191,7 +191,7 @@
   }
   /* line 203, ../sass/image-viewer.scss */
   .image-viewer .iv-holder.hide-panel .iv-panel {
-    left: 100%;
+    right: -250px;
   }
 }
 @media only screen and (min-width: 1024px) {

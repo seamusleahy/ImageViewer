@@ -80,7 +80,7 @@
     }
 
     .iv-panel {
-      left: 75%;
+      right: 0;
     }
 
 
@@ -140,7 +140,7 @@
 
   @include at-tablet-desktop {
     .iv-media-holder {
-      right: 25%;
+      right: $iv-panel-width;
 
       @include transition( right 0.25s );
     }
@@ -153,8 +153,8 @@
         position: absolute;
         top: 0;
         bottom: 0;
-        left: 75%;
-        width: 25%;
+        right: 0;
+        width: $iv-panel-width;
 
         background-color: $iv-panel-bg-color;
         @include background-image( $iv-panel-bg-image );
@@ -201,7 +201,7 @@
       }
 
       .iv-panel {
-        left: 100%;
+        right: 0 - $iv-panel-width;
       }
     }
   }
