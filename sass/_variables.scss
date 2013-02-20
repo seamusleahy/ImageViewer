@@ -1,0 +1,27 @@
+
+// You can set the path images within the Compass folder
+$iv-img-dir: "";
+
+
+// The color for the screen
+$iv-screen-color: rgba( #000, 0.5 );
+
+// Background color for the holder for images
+$iv-holder-color: #000;
+
+
+$iv-ui-overlay-color: #fff;
+
+$iv-ui-overlay-bg-color: rgba( #000, 0.75 );
+
+
+$iv-max-mobile: 650px;
+$iv-max-tablet: 1024px;
+
+
+$iv-panel-bg-color: #eee;
+$iv-panel-bg-image: linear-gradient( top, rgba(#000, 0), rgba(#000, 0.15) );
+$iv-panel-border: solid 1px rgba(#fff, 0.5);
+$iv-panel-color: #222;
+
+$iv-panel-borders: none, solid 1px rgba(#000, 0.5), none, solid 1px rgba(#fff, 0.5);

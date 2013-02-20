@@ -1,0 +1,225 @@
+@import "compass/css3";
+@import "animation";
+
+@import "variables";
+@import "responsive";
+
+
+.image-viewer {
+  opacity: 0;
+  visibility: hidden;
+
+  @include transition( all 0.5s );
+
+  &.show {
+    opacity: 1;
+    visibility: visible;
+
+    .iv-holder {
+      @include transform( scale(1) );
+    }
+  }
+
+  .iv-screen {
+    position: fixed;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+
+    background-color: $iv-screen-color;
+  }
+
+
+  .iv-holder {
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+
+    background-color: $iv-holder-color;
+
+    @include transition( transform 0.5s );
+    @include transform( scale(0.97) );
+  }
+
+  .iv-media-holder {
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    position: absolute;
+    overflow: hidden;
+
+    img {
+      display: block;
+      top: 50%;
+      left: 50%;
+      position: absolute;
+      max-width: 100%;
+      max-height: 100%;
+    }
+
+    &.zooming img {
+      max-width: auto;
+      max-height: auto;
+    }
+  }
+
+
+
+  .iv-ui-overlay {
+    opacity: 1;
+    color: $iv-ui-overlay-color;
+
+    @include transition( opacity 0.3s );
+    
+    &.hide {
+      opacity: 0;
+    }
+
+    .iv-panel {
+      left: 75%;
+    }
+
+
+    .iv-close-button {
+      display: block;
+      position: absolute;
+      top: 10px;
+      right: 10px;
+
+      cursor: pointer;
+
+      font: {
+        family: sans-serif;
+        weight: normal;
+        size: 20px;
+      };
+      text: {
+        decoration: none;
+        align: center;
+      }
+      line-height: 20px;
+      width: 20px;
+      padding: 1px 2px 3px;
+
+      @include border-radius( 50% );
+      border: solid 2px;
+      background-color: $iv-ui-overlay-bg-color;
+
+    }
+
+    .iv-description {
+      position: absolute;
+      left: 10px;
+      right: 10px;
+      bottom: 10px;
+      max-height: 3em;
+      overflow: hidden;
+
+      -webkit-mask-image: -webkit-linear-gradient(top, rgba(0,0,0,1), rgba(0,0,0,0.5));
+
+      font: {
+        family: sans-serif;
+        weight: normal;
+        size: 14px;
+      };
+      line-height: 1;
+      text-shadow: 0 0 10px $iv-ui-overlay-bg-color;
+
+      p {
+        margin: 0 0 1em;
+      }
+
+      border-top: 1px solid $iv-ui-overlay-color;
+      padding-top: 5px;
+    }
+  }
+
+  @include at-tablet-desktop {
+    .iv-media-holder {
+      right: 25%;
+
+      @include transition( right 0.25s );
+    }
+
+
+
+    .iv-ui-overlay {
+
+      .iv-panel {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 75%;
+        width: 25%;
+
+        background-color: $iv-panel-bg-color;
+        @include background-image( $iv-panel-bg-image );
+        border: $iv-panel-borders;
+        color: $iv-panel-color;
+
+        @include transition( left 0.25s );
+      }
+
+      .iv-close-button {
+        background-color: $iv-panel-bg-color;
+
+        color: mix( $iv-panel-color, $iv-panel-bg-color, 66%);
+
+        @include transition( all 0.2s );
+
+        &:hover,
+        &:focus {
+          color: $iv-panel-color;
+        }
+      }
+
+      .iv-description {
+        position: absolute;
+        top: 50px;
+        max-height: 100%;
+        overflow: 100%;
+
+        -webkit-mask-image: none;
+
+        text-shadow: 0 0 0 transparent;
+
+        border-top: none;
+        padding-top: 0;
+
+        line-height: 1.4;
+      }
+    }
+
+
+    .iv-holder.hide-panel {
+      .iv-media-holder {
+        right: 0;
+      }
+
+      .iv-panel {
+        left: 100%;
+      }
+    }
+  }
+
+  @include at-desktop {
+
+    .iv-holder {
+      top: 3%;
+      bottom: 3%;
+      left: 3%;
+      right: 3%;
+
+      @include box-shadow( 0 0 40px $iv-screen-color )
+    }
+
+    .iv-ui-overlay .iv-panel,
+    .iv-holder {
+      @include border-radius( 0 3px 3px 0 );
+    }
+  }
+}
